@@ -1,4 +1,5 @@
-[
+{
+    "courses" :[
   {
     "courseName": "Android",
     "title": "Complete Android 11 Jetpack Bootcamp(With Jetpack Compose)",
@@ -35,6 +36,7 @@
       "stars": 3
   }
 ]
+}
 
 
 

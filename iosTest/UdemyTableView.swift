@@ -10,63 +10,112 @@ import QuartzCore
 
 class UdemyTableView: UIViewController ,UITableViewDelegate, UITableViewDataSource {
     
-    var images  = [ UIImage(named: "android"),
-                    UIImage(named: "django"),
-                    UIImage(named: "flutter"),
-                    UIImage(named: "node"),
-                    UIImage(named: "web")]
-   
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return images.count
-    }
+  weak   var DescriptionControler : descriptionControler?
+    var  UdemyCoursesData : [course]  = []
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        //cell.textLabel?.text = "aaa"
-        cell.imageView?.image = images[indexPath.row]
-        cell.imageView?.layer.borderWidth = 2
-        cell.imageView?.layer.borderColor = UIColor.black.cgColor
-       
-        return cell    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
+    var cellIndexPath : Int = 0
     
-    
-//     let path = Bundle.main.path(forResource: "Udemy courses", ofType: "json") {
-//        do {
-//              let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-//              let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-//              if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let person = jsonResult["courses"] as? [Any] {
-//                        // do stuff
-//              }
-//          }
-//    }
-    
-//     let path = Bundle.mainBundle().pathForResource("Udemy courses", ofType: "json")
-//    {
-//        if let jsonData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil)
-//        {
-//            if let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary
-//            {
-//                if let persons : NSArray = jsonResult["courses"] as? NSArray
-//                {
-//                    // Do stuff
-//                }
-//            }
-//         }
-//    }
-    @IBOutlet weak var userNameLabel: UILabel!
-    var userName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         userNameLabel.text = userName
+      
+        self.UdemyCoursesData = loadJson("udemyCourses") ?? []
+        print(self.UdemyCoursesData[0])
      
     }
     
+    var images  = [ UIImage(named: "android"),
+                    UIImage(named: "web"),
+                    UIImage(named: "django"),
+                    UIImage(named: "node"),
+                    UIImage(named: "flutter")]
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UdemyCourseCell
+        //cell.textLabel?.text = "aaa"
+        cell.imageView?.image = images[indexPath.row]
+        cell.imageView?.layer.borderWidth = 2
+        cell.imageView?.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 3
+        cell.titelLabel.text = self.UdemyCoursesData[indexPath.row].title
+        cell.buttonCell.tag = indexPath.row
+      
+        
+        
+        
+        return cell    }
+    
   
+    
+    
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
+    
+
+  
+    @IBOutlet weak var userNameLabel: UILabel!
+   
+    var userName = ""
+    
+   
+    
+    struct ResponseData: Decodable {
+        var courses : [course]
+    }
+   
+    struct course : Decodable {
+        var courseName: String
+        var title: String
+        var Subtitle: String
+        var Description: String
+        var stars: Int
+        
+    }
+  
+    func loadJson(_ fileName: String) -> [course]? {
+        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+             
+               
+               
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode(ResponseData.self, from: data)
+                return jsonData.courses
+            } catch {
+                print("error:\(error)")
+            }
+        }
+        return nil
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let  button = sender as? UIButton else {return}
+        
+        let DescriptionControler  : descriptionControler = segue.destination as! descriptionControler
+
+        DescriptionControler.Title = UdemyCoursesData[button.tag].title
+        DescriptionControler.imageName = images[button.tag] ?? UIImage(named: "android") as! UIImage
+        DescriptionControler.subTitel = UdemyCoursesData[button.tag].Subtitle
+        DescriptionControler.Description = UdemyCoursesData[button.tag].Description
+
+
+
+    }
+   
     
     
     

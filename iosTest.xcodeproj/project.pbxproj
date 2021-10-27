@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95038D66272973EE007D76F0 /* UdemyCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95038D65272973EE007D76F0 /* UdemyCourseCell.swift */; };
+		95038D6B27297B64007D76F0 /* descriptionControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95038D6A27297B64007D76F0 /* descriptionControler.swift */; };
 		95302AD6272804D5007B62A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95302AD5272804D5007B62A7 /* AppDelegate.swift */; };
 		95302AD8272804D5007B62A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95302AD7272804D5007B62A7 /* SceneDelegate.swift */; };
 		95302ADA272804D5007B62A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95302AD9272804D5007B62A7 /* ViewController.swift */; };
@@ -16,7 +18,7 @@
 		95302AED272804DF007B62A7 /* iosTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95302AEC272804DF007B62A7 /* iosTestTests.swift */; };
 		95302AF8272804DF007B62A7 /* iosTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95302AF7272804DF007B62A7 /* iosTestUITests.swift */; };
 		95302B1127281DC1007B62A7 /* UdemyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95302B1027281DC1007B62A7 /* UdemyTableView.swift */; };
-		955B05FC27284F50005ED6D5 /* udemy courses.json in Resources */ = {isa = PBXBuildFile; fileRef = 955B05FB27284F50005ED6D5 /* udemy courses.json */; };
+		955B060127295461005ED6D5 /* udemyCourses.json in Resources */ = {isa = PBXBuildFile; fileRef = 955B060027295461005ED6D5 /* udemyCourses.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		95038D65272973EE007D76F0 /* UdemyCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdemyCourseCell.swift; sourceTree = "<group>"; };
+		95038D6A27297B64007D76F0 /* descriptionControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = descriptionControler.swift; sourceTree = "<group>"; };
 		95302AD2272804D5007B62A7 /* iosTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95302AD5272804D5007B62A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95302AD7272804D5007B62A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +56,7 @@
 		95302AF7272804DF007B62A7 /* iosTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosTestUITests.swift; sourceTree = "<group>"; };
 		95302AF9272804DF007B62A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95302B1027281DC1007B62A7 /* UdemyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdemyTableView.swift; sourceTree = "<group>"; };
-		955B05FB27284F50005ED6D5 /* udemy courses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "udemy courses.json"; sourceTree = "<group>"; };
+		955B060027295461005ED6D5 /* udemyCourses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = udemyCourses.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +111,9 @@
 				95302AD7272804D5007B62A7 /* SceneDelegate.swift */,
 				95302AD9272804D5007B62A7 /* ViewController.swift */,
 				95302ADB272804D5007B62A7 /* Main.storyboard */,
-				955B05FB27284F50005ED6D5 /* udemy courses.json */,
+				95038D6A27297B64007D76F0 /* descriptionControler.swift */,
+				95038D65272973EE007D76F0 /* UdemyCourseCell.swift */,
+				955B060027295461005ED6D5 /* udemyCourses.json */,
 				95302B1027281DC1007B62A7 /* UdemyTableView.swift */,
 				95302ADE272804DF007B62A7 /* Assets.xcassets */,
 				95302AE0272804DF007B62A7 /* LaunchScreen.storyboard */,
@@ -237,9 +243,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955B060127295461005ED6D5 /* udemyCourses.json in Resources */,
 				95302AE2272804DF007B62A7 /* LaunchScreen.storyboard in Resources */,
 				95302ADF272804DF007B62A7 /* Assets.xcassets in Resources */,
-				955B05FC27284F50005ED6D5 /* udemy courses.json in Resources */,
 				95302ADD272804D5007B62A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,8 +272,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				95302ADA272804D5007B62A7 /* ViewController.swift in Sources */,
+				95038D6B27297B64007D76F0 /* descriptionControler.swift in Sources */,
 				95302AD6272804D5007B62A7 /* AppDelegate.swift in Sources */,
 				95302B1127281DC1007B62A7 /* UdemyTableView.swift in Sources */,
+				95038D66272973EE007D76F0 /* UdemyCourseCell.swift in Sources */,
 				95302AD8272804D5007B62A7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
