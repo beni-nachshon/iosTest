@@ -39,12 +39,13 @@ class UdemyTableView: UIViewController ,UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UdemyCourseCell
         
         cell.imageView?.image = images[indexPath.row]
-        cell.imageView?.layer.borderWidth = 2
+        cell.imageView?.layer.borderWidth = 5
         cell.imageView?.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderColor = UIColor.white.cgColor
         cell.layer.borderWidth = 3
         cell.titelLabel.text = self.UdemyCoursesData[indexPath.row].title
         cell.buttonCell.tag = indexPath.row
+        
         
         switch (UdemyCoursesData[indexPath.row].stars){
         case 3:
