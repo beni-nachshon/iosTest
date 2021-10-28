@@ -24,7 +24,7 @@ class UdemyTableView: UIViewController ,UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         userNameLabel.text = userName
-      
+     // userNameLabel.text =  UserDefaults.standard.string( forKey: "UdemyUserName")
         self.UdemyCoursesData = loadJson("udemyCourses") ?? []
             
     }

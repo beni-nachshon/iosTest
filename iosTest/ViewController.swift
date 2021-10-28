@@ -29,7 +29,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
        let udemyTableView  : UdemyTableView = segue.destination as! UdemyTableView
         var userName = ""
         userName = userNameTextField.text ?? ""
-        udemyTableView.userName = userName
+       let savedName =  UserDefaults.standard.string( forKey: "UdemyUserName")
+        UserDefaults.standard.set(userName, forKey: "UdemyUserName")
+        
+        udemyTableView.userName = savedName ?? userName
+        
+        
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
