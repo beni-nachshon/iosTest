@@ -44,7 +44,7 @@
                                             <constraint firstAttribute="width" constant="240" id="aVh-Ty-Nba"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAF-eL-v3p">
                                         <rect key="frame" x="0.0" y="204" width="240" height="65"/>
@@ -85,6 +85,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="SDw-pZ-CMb" id="Gwq-be-StX"/>
+                        <outlet property="passwordTextField" destination="DiG-oA-ifx" id="7gk-Xd-gTl"/>
                         <outlet property="userNameTextField" destination="qpp-tf-60q" id="o1p-SS-U8x"/>
                     </connections>
                 </viewController>
@@ -153,7 +155,7 @@
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBy-8C-gIt">
-                                                    <rect key="frame" x="271" y="157" width="100" height="20"/>
+                                                    <rect key="frame" x="264" y="157" width="100" height="20"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yelloStar" translatesAutoresizingMaskIntoConstraints="NO" id="nqf-7s-ViT">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -199,7 +201,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="OAB-3D-0uP" secondAttribute="trailing" id="Zzm-b3-Dko"/>
                                                 <constraint firstItem="nBy-8C-gIt" firstAttribute="bottom" secondItem="ILM-vM-zH4" secondAttribute="bottomMargin" id="cqs-0p-ETd"/>
                                                 <constraint firstItem="dJd-ZJ-59M" firstAttribute="top" secondItem="ILM-vM-zH4" secondAttribute="top" id="hBB-lH-lca"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="nBy-8C-gIt" secondAttribute="trailing" constant="23" id="oMN-je-eL4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nBy-8C-gIt" secondAttribute="trailing" constant="30" id="oMN-je-eL4"/>
                                                 <constraint firstItem="OAB-3D-0uP" firstAttribute="top" secondItem="ILM-vM-zH4" secondAttribute="top" constant="11" id="uZg-Qf-kAR"/>
                                                 <constraint firstItem="dJd-ZJ-59M" firstAttribute="leading" secondItem="ILM-vM-zH4" secondAttribute="leading" id="w4f-rp-4Ny"/>
                                                 <constraint firstItem="SsT-Rj-Bz9" firstAttribute="leading" secondItem="ILM-vM-zH4" secondAttribute="leading" id="zig-Rh-b45"/>
@@ -209,6 +211,11 @@
                                         <connections>
                                             <outlet property="buttonCell" destination="SsT-Rj-Bz9" id="AP1-Or-cEk"/>
                                             <outlet property="titelLabel" destination="OAB-3D-0uP" id="AoV-so-2Dc"/>
+                                            <outletCollection property="stars" destination="nqf-7s-ViT" collectionClass="NSMutableArray" id="oWs-Sn-4AX"/>
+                                            <outletCollection property="stars" destination="pxQ-GP-Ciq" collectionClass="NSMutableArray" id="x4O-4k-byw"/>
+                                            <outletCollection property="stars" destination="vFw-qQ-PUr" collectionClass="NSMutableArray" id="X5V-FB-29r"/>
+                                            <outletCollection property="stars" destination="QpL-zK-mIW" collectionClass="NSMutableArray" id="EuP-Dw-M36"/>
+                                            <outletCollection property="stars" destination="hdn-5j-UAY" collectionClass="NSMutableArray" id="lKQ-1M-sYB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

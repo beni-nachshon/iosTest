@@ -16,7 +16,7 @@ class descriptionControler: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
      var Title: String = ""
-    var imageName: UIImage = UIImage(named: "android") as! UIImage
+     var imageName: UIImage = UIImage(named: "android")!
      var subTitel: String = ""
      var Description : String = ""
     

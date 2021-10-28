@@ -10,27 +10,26 @@ import QuartzCore
 
 class UdemyTableView: UIViewController ,UITableViewDelegate, UITableViewDataSource {
     
-  weak   var DescriptionControler : descriptionControler?
+    var userName = ""
     var  UdemyCoursesData : [course]  = []
+    var images  = [ UIImage(named: "android"),
+                    UIImage(named: "web"),
+                    UIImage(named: "django"),
+                    UIImage(named: "node"),
+                    UIImage(named: "flutter")]
     
-    var cellIndexPath : Int = 0
-    
-    
+    @IBOutlet weak var userNameLabel: UILabel!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         userNameLabel.text = userName
       
         self.UdemyCoursesData = loadJson("udemyCourses") ?? []
-        print(self.UdemyCoursesData[0])
-     
+            
     }
     
-    var images  = [ UIImage(named: "android"),
-                    UIImage(named: "web"),
-                    UIImage(named: "django"),
-                    UIImage(named: "node"),
-                    UIImage(named: "flutter")]
+   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return images.count
@@ -38,7 +37,7 @@ class UdemyTableView: UIViewController ,UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UdemyCourseCell
-        //cell.textLabel?.text = "aaa"
+        
         cell.imageView?.image = images[indexPath.row]
         cell.imageView?.layer.borderWidth = 2
         cell.imageView?.layer.borderColor = UIColor.black.cgColor
@@ -46,31 +45,29 @@ class UdemyTableView: UIViewController ,UITableViewDelegate, UITableViewDataSour
         cell.layer.borderWidth = 3
         cell.titelLabel.text = self.UdemyCoursesData[indexPath.row].title
         cell.buttonCell.tag = indexPath.row
-      
         
+        switch (UdemyCoursesData[indexPath.row].stars){
+        case 3:
+            cell.stars[4].image = UIImage(named: "blackstar3")
+            cell.stars[3].image = UIImage(named: "blackstar3")
+            break
+        case 4:
+            cell.stars[4].image = UIImage(named: "blackstar3")
+            break
+            
+        default: break
+            
+        }
+        return cell
         
-        
-        return cell    }
+    }
     
   
-    
-    
-    
-    
-    
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
     
     
-
-  
-    @IBOutlet weak var userNameLabel: UILabel!
-   
-    var userName = ""
-    
-   
     
     struct ResponseData: Decodable {
         var courses : [course]
@@ -101,6 +98,7 @@ class UdemyTableView: UIViewController ,UITableViewDelegate, UITableViewDataSour
         }
         return nil
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let  button = sender as? UIButton else {return}
@@ -108,16 +106,10 @@ class UdemyTableView: UIViewController ,UITableViewDelegate, UITableViewDataSour
         let DescriptionControler  : descriptionControler = segue.destination as! descriptionControler
 
         DescriptionControler.Title = UdemyCoursesData[button.tag].title
-        DescriptionControler.imageName = images[button.tag] ?? UIImage(named: "android") as! UIImage
+        DescriptionControler.imageName = images[button.tag] ?? UIImage(named: "android")!
         DescriptionControler.subTitel = UdemyCoursesData[button.tag].Subtitle
         DescriptionControler.Description = UdemyCoursesData[button.tag].Description
 
-
-
     }
    
-    
-    
-    
-
 }

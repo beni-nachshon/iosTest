@@ -12,11 +12,10 @@ class UdemyCourseCell: UITableViewCell {
     var indexOfRow : Int = 0
     
     @IBOutlet weak var buttonCell: UIButton!
-    
-    
-    
     @IBOutlet weak var titelLabel: UILabel!
-   
+    @IBOutlet var stars: [UIImageView]!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
